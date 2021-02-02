@@ -10,6 +10,7 @@ namespace School
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello everyone");
         }
     }
 }
