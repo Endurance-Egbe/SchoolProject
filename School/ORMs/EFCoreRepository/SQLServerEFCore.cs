@@ -12,10 +12,11 @@ namespace ORMs.EFCoreRepository
         protected override void InitialiseDatabase(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;
-                                            Initial Catalog=EFCoreSQLServer;Integrated Security=True;Connect Timeout=30;
-                                            Encrypt=False;TrustServerCertificate=False;
-                                            ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=SchoolDBEFCore;
+                                            Integrated Security=True;
+                                            Connect Timeout=30;Encrypt=False;
+                                            TrustServerCertificate=False;ApplicationIntent=ReadWrite;
+                                            MultiSubnetFailover=False");
 
         }
     }

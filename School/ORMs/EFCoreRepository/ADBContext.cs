@@ -28,6 +28,16 @@ namespace ORMs.EFCoreRepository
             SQLitePCL.Batteries.Init();
             InitialiseDatabase(optionsBuilder);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SchoolModel>(x => x.HasKey(y => y.Id))
+                .Entity<Principal>(x => x.HasKey(y => y.Id))
+                .Entity<SchoolClass>(x => x.HasKey(y => y.Id))
+                .Entity<Subject>(x => x.HasKey(y => y.Id))
+                .Entity<Student>(x => x.HasKey(y => y.Id))
+                .Entity<Teacher>(x => x.HasKey(y => y.Id));
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }

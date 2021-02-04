@@ -18,6 +18,7 @@ namespace School
             //var sqlserver = new SQLiteNHibernate();
             var sqlserver = new SQLiteEFCore();
             var repo = new EFCoreRepository<SchoolModel>(sqlserver);
+            //var repo = new NHibernateRepository<SchoolModel>(sqlserver);
             CreateModel(repo);
             Console.WriteLine("DataBaseLoaded");
             Console.ReadLine();
@@ -94,28 +95,59 @@ namespace School
             { Name = "SS3", School = queenLandC, Teacher = queenLandTeacher3 };
             var queenLandClasses = new List<SchoolClass> { ss1QL, ss2QL, ss3QL };
 
-            //subjects 
-            Subject english1 = new Subject() { Name = "English1" };
-            Subject english2 = new Subject() { Name = "English2" };
-            Subject english3 = new Subject() { Name = "English3" };
-            Subject mathematics1 = new Subject() { Name = "Mathematics1" };
-            Subject mathematics2 = new Subject() { Name = "Mathematics2" };
-            Subject mathematics3 = new Subject() { Name = "Mathematics3" };
-            Subject physics1 = new Subject() { Name = "Physics1" };
-            Subject physics2 = new Subject() { Name = "Physics2" };
-            Subject physics3 = new Subject() { Name = "Physics3" };
-            Subject chemistry1 = new Subject() { Name = "Chemistry1" };
-            Subject chemistry2 = new Subject() { Name = "Chemistry2" };
-            Subject chemistry3 = new Subject() { Name = "Chemistry3" };
-            Subject biology1 = new Subject() { Name = "Biology1" };
-            Subject biology2 = new Subject() { Name = "Biology2" };
-            Subject biology3 = new Subject() { Name = "Biology3" };
-            Subject geography1 = new Subject() { Name = "Geography1" };
-            Subject geography2 = new Subject() { Name = "Geography2" };
-            Subject geography3 = new Subject() { Name = "Geography3" };
+            //subjects for queen land 
+            Subject english1 = new Subject() { Name = "English1",SchoolClass=ss1QL,Teacher=queenLandTeacher1 };
+            Subject english2 = new Subject() { Name = "English2", SchoolClass = ss2QL, Teacher = queenLandTeacher2 };
+            Subject english3 = new Subject() { Name = "English3", SchoolClass = ss3QL, Teacher = queenLandTeacher1 };
+            Subject mathematics1 = new Subject() { Name = "Mathematics1",SchoolClass = ss1QL, Teacher = queenLandTeacher4 };
+            Subject mathematics2 = new Subject() { Name = "Mathematics2" ,SchoolClass = ss2QL, Teacher = queenLandTeacher3 };
+            Subject mathematics3 = new Subject() { Name = "Mathematics3", SchoolClass = ss3QL, Teacher = queenLandTeacher6 };
+            Subject physics1 = new Subject() { Name = "Physics1", SchoolClass = ss1QL, Teacher = queenLandTeacher7 };
+            Subject physics2 = new Subject() { Name = "Physics2", SchoolClass = ss2QL, Teacher = queenLandTeacher3 };
+            Subject physics3 = new Subject() { Name = "Physics3", SchoolClass = ss3QL, Teacher = queenLandTeacher3 };
+            Subject chemistry1 = new Subject() { Name = "Chemistry1", SchoolClass = ss1QL, Teacher = queenLandTeacher5 };
+            Subject chemistry2 = new Subject() { Name = "Chemistry2", SchoolClass = ss2QL, Teacher = queenLandTeacher5 };
+            Subject chemistry3 = new Subject() { Name = "Chemistry3", SchoolClass = ss3QL, Teacher = queenLandTeacher7 };
+            Subject biology1 = new Subject() { Name = "Biology1", SchoolClass = ss1QL, Teacher = queenLandTeacher2 };
+            Subject biology2 = new Subject() { Name = "Biology2", SchoolClass = ss2QL, Teacher = queenLandTeacher2 };
+            Subject biology3 = new Subject() { Name = "Biology3", SchoolClass = ss3QL, Teacher = queenLandTeacher5 };
+            Subject geography1 = new Subject() { Name = "Geography1", SchoolClass = ss1QL, Teacher = queenLandTeacher6 };
+            Subject geography2 = new Subject() { Name = "Geography2", SchoolClass = ss2QL, Teacher = queenLandTeacher6 };
+            Subject geography3 = new Subject() { Name = "Geography3", SchoolClass = ss3QL, Teacher = queenLandTeacher6 };
 
+            //School subjet Table 
+            //...........SUBJECTS
+            var ss1Subject = new List<Subject> { english1, mathematics1, chemistry1, physics1, biology1, geography1 };
+            var ss2Subject = new List<Subject> { english2, mathematics2, chemistry2, physics2, biology2, geography2 };
+            var ss3Subject = new List<Subject> { english3, mathematics3, chemistry3, physics3, biology3, geography3 };
+
+            //subjects for brainfield 
+            Subject english1bfd = new Subject() { Name = "English1", SchoolClass = ss1BrainField, Teacher = bFieldteacher1 };
+            Subject english2bfd = new Subject() { Name = "English2", SchoolClass = ss2BrainField, Teacher = bFieldteacher2 };
+            Subject english3bfd = new Subject() { Name = "English3", SchoolClass = ss3BrainField, Teacher = bFieldteacher1 };
+            Subject mathematics1bfd = new Subject() { Name = "Mathematics1", SchoolClass = ss1BrainField, Teacher = bFieldteacher1 };
+            Subject mathematics2bfd = new Subject() { Name = "Mathematics2", SchoolClass = ss2BrainField, Teacher = bFieldteacher3 };
+            Subject mathematics3bfd = new Subject() { Name = "Mathematics3", SchoolClass = ss3BrainField, Teacher = bFieldteacher6 };
+            Subject physics1bfd = new Subject() { Name = "Physics1", SchoolClass = ss1BrainField, Teacher = bFieldteacher1 };
+            Subject physics2bfd = new Subject() { Name = "Physics2", SchoolClass = ss2BrainField, Teacher = bFieldteacher3 };
+            Subject physics3bfd = new Subject() { Name = "Physics3", SchoolClass = ss3BrainField, Teacher = bFieldteacher3 };
+            Subject chemistry1bfd = new Subject() { Name = "Chemistry1", SchoolClass = ss1BrainField, Teacher = bFieldteacher1 };
+            Subject chemistry2bfd = new Subject() { Name = "Chemistry2", SchoolClass = ss2BrainField, Teacher = bFieldteacher5 };
+            Subject chemistry3bfd = new Subject() { Name = "Chemistry3", SchoolClass = ss3BrainField, Teacher = bFieldteacher1 };
+            Subject biology1bfd = new Subject() { Name = "Biology1", SchoolClass = ss1BrainField, Teacher = bFieldteacher2 };
+            Subject biology2bfd = new Subject() { Name = "Biology2", SchoolClass = ss2BrainField, Teacher = bFieldteacher2 };
+            Subject biology3bfd = new Subject() { Name = "Biology3", SchoolClass = ss3BrainField, Teacher = bFieldteacher5 };
+            Subject geography1bfd = new Subject() { Name = "Geography1", SchoolClass = ss1BrainField, Teacher = bFieldteacher6 };
+            Subject geography2bfd = new Subject() { Name = "Geography2", SchoolClass = ss2BrainField, Teacher = bFieldteacher6 };
+            Subject geography3bfd = new Subject() { Name = "Geography3", SchoolClass = ss3BrainField, Teacher = bFieldteacher6 };
+
+            //School subjet Table 
+            //...........SUBJECTS
+            var ss1Subjectbfd = new List<Subject> { english1bfd, mathematics1bfd, chemistry1bfd, physics1bfd, biology1bfd, geography1bfd };
+            var ss2Subjectbfd = new List<Subject> { english2bfd, mathematics2bfd, chemistry2bfd, physics2bfd, biology2bfd, geography2bfd };
+            var ss3Subjectbfd = new List<Subject> { english3bfd, mathematics3bfd, chemistry3bfd, physics3bfd, biology3bfd, geography3bfd };
             ////subjects 
-            //Subject english1 = new Subject() { Name = "English1",SchoolClass=ss1BrainField,Teacher=bFieldteacher1 };
+            //Subject english1 = new Subject() { Name = "English1" };
             //Subject english2 = new Subject() { Name = "English2" };
             //Subject english3 = new Subject() { Name = "English3" };
             //Subject mathematics1 = new Subject() { Name = "Mathematics1" };
@@ -136,114 +168,107 @@ namespace School
 
             // Subject table
             // .................queen land
-            english1.Teacher = queenLandTeacher1;
-            english1.SchoolClass = ss1QL;
-            english2.Teacher = queenLandTeacher2;
-            english2.SchoolClass = ss2QL;
-            english3.Teacher = queenLandTeacher2;
-            english3.SchoolClass = ss3QL;
-            mathematics1.Teacher = queenLandTeacher2;
-            mathematics1.SchoolClass = ss1QL;
-            mathematics2.Teacher = queenLandTeacher4;
-            mathematics2.SchoolClass = ss2QL;
-            mathematics3.Teacher = queenLandTeacher5;
-            mathematics3.SchoolClass = ss3QL;
-            biology1.Teacher = queenLandTeacher6;
-            biology1.SchoolClass = ss1QL;
-            biology2.Teacher = queenLandTeacher4;
-            biology2.SchoolClass = ss2QL;
-            biology3.Teacher = queenLandTeacher1;
-            biology3.SchoolClass = ss3QL;
-            physics1.Teacher = queenLandTeacher7;
-            physics1.SchoolClass = ss1QL;
-            physics2.Teacher = queenLandTeacher7;
-            physics2.SchoolClass = ss2QL;
-            physics3.Teacher = queenLandTeacher5;
-            physics3.SchoolClass = ss3QL;
-            chemistry1.Teacher = queenLandTeacher6;
-            chemistry1.SchoolClass = ss1QL;
-            chemistry2.Teacher = queenLandTeacher2;
-            chemistry2.SchoolClass = ss2QL;
-            chemistry3.Teacher = queenLandTeacher6;
-            chemistry3.SchoolClass = ss3QL;
-            geography1.Teacher = queenLandTeacher7;
-            geography1.SchoolClass = ss1QL;
-            geography2.Teacher = queenLandTeacher1;
-            geography2.SchoolClass = ss2QL;
-            geography3.Teacher = queenLandTeacher1;
-            geography3.SchoolClass = ss3QL;
+            //english1.Teacher = queenLandTeacher1;
+            //english1.SchoolClass = ss1QL;
+            //english2.Teacher = queenLandTeacher2;
+            //english2.SchoolClass = ss2QL;
+            //english3.Teacher = queenLandTeacher2;
+            //english3.SchoolClass = ss3QL;
+            //mathematics1.Teacher = queenLandTeacher2;
+            //mathematics1.SchoolClass = ss1QL;
+            //mathematics2.Teacher = queenLandTeacher4;
+            //mathematics2.SchoolClass = ss2QL;
+            //mathematics3.Teacher = queenLandTeacher5;
+            //mathematics3.SchoolClass = ss3QL;
+            //biology1.Teacher = queenLandTeacher6;
+            //biology1.SchoolClass = ss1QL;
+            //biology2.Teacher = queenLandTeacher4;
+            //biology2.SchoolClass = ss2QL;
+            //biology3.Teacher = queenLandTeacher1;
+            //biology3.SchoolClass = ss3QL;
+            //physics1.Teacher = queenLandTeacher7;
+            //physics1.SchoolClass = ss1QL;
+            //physics2.Teacher = queenLandTeacher7;
+            //physics2.SchoolClass = ss2QL;
+            //physics3.Teacher = queenLandTeacher5;
+            //physics3.SchoolClass = ss3QL;
+            //chemistry1.Teacher = queenLandTeacher6;
+            //chemistry1.SchoolClass = ss1QL;
+            //chemistry2.Teacher = queenLandTeacher2;
+            //chemistry2.SchoolClass = ss2QL;
+            //chemistry3.Teacher = queenLandTeacher6;
+            //chemistry3.SchoolClass = ss3QL;
+            //geography1.Teacher = queenLandTeacher7;
+            //geography1.SchoolClass = ss1QL;
+            //geography2.Teacher = queenLandTeacher1;
+            //geography2.SchoolClass = ss2QL;
+            //geography3.Teacher = queenLandTeacher1;
+            //geography3.SchoolClass = ss3QL;
 
-            // .................Brain Field
-            english1.Teacher = bFieldteacher1;
-            english1.SchoolClass = ss1BrainField;
-            english2.Teacher = bFieldteacher2;
-            english2.SchoolClass = ss1BrainField;
-            english3.Teacher = bFieldteacher2;
-            english3.SchoolClass = ss1BrainField;
-            mathematics1.Teacher = bFieldteacher2;
-            mathematics1.SchoolClass = ss1BrainField;
-            mathematics2.Teacher = bFieldteacher4;
-            mathematics2.SchoolClass = ss2BrainField;
-            mathematics3.Teacher = bFieldteacher5;
-            mathematics3.SchoolClass = ss3BrainField;
-            biology1.Teacher = bFieldteacher6;
-            biology1.SchoolClass = ss1BrainField;
-            biology2.Teacher = bFieldteacher4;
-            biology2.SchoolClass = ss2BrainField;
-            biology3.Teacher = bFieldteacher1;
-            biology3.SchoolClass = ss3BrainField;
-            physics1.Teacher = bFieldteacher7;
-            physics1.SchoolClass = ss1BrainField;
-            physics2.Teacher = bFieldteacher7;
-            physics2.SchoolClass = ss2BrainField;
-            physics3.Teacher = bFieldteacher5;
-            physics3.SchoolClass = ss3BrainField;
-            chemistry1.Teacher = bFieldteacher6;
-            chemistry1.SchoolClass = ss1BrainField;
-            chemistry2.Teacher = bFieldteacher2;
-            chemistry2.SchoolClass = ss2BrainField;
-            chemistry3.Teacher = bFieldteacher6;
-            chemistry3.SchoolClass = ss3BrainField;
-            geography1.Teacher = bFieldteacher7;
-            geography1.SchoolClass = ss1BrainField;
-            geography2.Teacher = bFieldteacher1;
-            geography2.SchoolClass = ss2BrainField;
-            geography3.Teacher = bFieldteacher1;
-            geography3.SchoolClass = ss3BrainField;
+            //// .................Brain Field
+            //english1.Teacher = bFieldteacher1;
+            //english1.SchoolClass = ss1BrainField;
+            //english2.Teacher = bFieldteacher2;
+            //english2.SchoolClass = ss1BrainField;
+            //english3.Teacher = bFieldteacher2;
+            //english3.SchoolClass = ss1BrainField;
+            //mathematics1.Teacher = bFieldteacher2;
+            //mathematics1.SchoolClass = ss1BrainField;
+            //mathematics2.Teacher = bFieldteacher4;
+            //mathematics2.SchoolClass = ss2BrainField;
+            //mathematics3.Teacher = bFieldteacher5;
+            //mathematics3.SchoolClass = ss3BrainField;
+            //biology1.Teacher = bFieldteacher6;
+            //biology1.SchoolClass = ss1BrainField;
+            //biology2.Teacher = bFieldteacher4;
+            //biology2.SchoolClass = ss2BrainField;
+            //biology3.Teacher = bFieldteacher1;
+            //biology3.SchoolClass = ss3BrainField;
+            //physics1.Teacher = bFieldteacher7;
+            //physics1.SchoolClass = ss1BrainField;
+            //physics2.Teacher = bFieldteacher7;
+            //physics2.SchoolClass = ss2BrainField;
+            //physics3.Teacher = bFieldteacher5;
+            //physics3.SchoolClass = ss3BrainField;
+            //chemistry1.Teacher = bFieldteacher6;
+            //chemistry1.SchoolClass = ss1BrainField;
+            //chemistry2.Teacher = bFieldteacher2;
+            //chemistry2.SchoolClass = ss2BrainField;
+            //chemistry3.Teacher = bFieldteacher6;
+            //chemistry3.SchoolClass = ss3BrainField;
+            //geography1.Teacher = bFieldteacher7;
+            //geography1.SchoolClass = ss1BrainField;
+            //geography2.Teacher = bFieldteacher1;
+            //geography2.SchoolClass = ss2BrainField;
+            //geography3.Teacher = bFieldteacher1;
+            //geography3.SchoolClass = ss3BrainField;
 
-            //School Class Table 
-            //...........SUBJECTS
-            var ss1Subject = new List<Subject> { english1, mathematics1, chemistry1, physics1, biology1, geography1 };
-            var ss2Subject = new List<Subject> { english2, mathematics2, chemistry2, physics2, biology2, geography2 };
-            var ss3Subject = new List<Subject> { english3, mathematics3, chemistry3, physics3, biology3, geography3 };
-
-           
-
-
+            
             //Studends at BrainField
-            Student brainFieldStudent1 = new Student { FirstName = "Agness", LastName = "David", Gender = "Female", Location = "Romuola",School= brainField,SchoolClass=ss1BrainField,Subjects=ss1Subject };
-            Student brainFieldStudent2 = new Student { FirstName = "Owen", LastName = "Greg", Gender = "Male", Location = "Romuokoro", School = brainField, SchoolClass = ss1BrainField, Subjects = ss1Subject };
-            Student brainFieldStudent3 = new Student { FirstName = "Magret", LastName = "David", Gender = "Female", Location = "Romuokoro", School = brainField, SchoolClass = ss1BrainField, Subjects = ss1Subject };
-            Student brainFieldStudent4 = new Student { FirstName = "Antonia", LastName = "Elmon", Gender = "Female", Location = "Romuola", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subject };
-            Student brainFieldStudent5 = new Student { FirstName = "Victor", LastName = "Abang", Gender = "Male", Location = "Uzuoba", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subject };
-            Student brainFieldStudent6 = new Student { FirstName = "Great", LastName = "Obong", Gender = "Male", Location = "Romuola", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subject };
-            Student brainFieldStudent7 = new Student { FirstName = "Victory", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subject };
-            Student brainFieldStudent8 = new Student { FirstName = "David", LastName = "Great", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subject };
-            Student brainFieldStudent9 = new Student { FirstName = "Victory", LastName = "Elmon", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subject };
-            Student brainFieldStudent10 = new Student { FirstName = "Antonia", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subject };
-            Student brainFieldStudent11 = new Student { FirstName = "Elmon", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subject };
+            Student brainFieldStudent1 = new Student { FirstName = "Agness", LastName = "David", Gender = "Female", Location = "Romuola",School= brainField,SchoolClass=ss1BrainField,Subjects= ss1Subjectbfd };
+            Student brainFieldStudent2 = new Student { FirstName = "Owen", LastName = "Greg", Gender = "Male", Location = "Romuokoro", School = brainField, SchoolClass = ss1BrainField, Subjects = ss1Subjectbfd };
+            Student brainFieldStudent3 = new Student { FirstName = "Magret", LastName = "David", Gender = "Female", Location = "Romuokoro", School = brainField, SchoolClass = ss1BrainField, Subjects = ss1Subjectbfd };
+            Student brainFieldStudent4 = new Student { FirstName = "Antonia", LastName = "Elmon", Gender = "Female", Location = "Romuola", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subjectbfd };
+            Student brainFieldStudent5 = new Student { FirstName = "Victor", LastName = "Abang", Gender = "Male", Location = "Uzuoba", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subjectbfd };
+            Student brainFieldStudent6 = new Student { FirstName = "Great", LastName = "Obong", Gender = "Male", Location = "Romuola", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subjectbfd };
+            Student brainFieldStudent7 = new Student { FirstName = "Victory", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss2BrainField, Subjects = ss2Subjectbfd };
+            Student brainFieldStudent8 = new Student { FirstName = "David", LastName = "Great", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subjectbfd };
+            Student brainFieldStudent9 = new Student { FirstName = "Victory", LastName = "Elmon", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subjectbfd };
+            Student brainFieldStudent10 = new Student { FirstName = "Antonia", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subjectbfd };
+            Student brainFieldStudent11 = new Student { FirstName = "Elmon", LastName = "David", Gender = "Female", Location = "Uzuoba", School = brainField, SchoolClass = ss3BrainField, Subjects = ss3Subjectbfd };
+            
             var brainFieldStudents = new List<Student> { brainFieldStudent1, brainFieldStudent2, brainFieldStudent3, brainFieldStudent4, brainFieldStudent5, brainFieldStudent6, brainFieldStudent7, brainFieldStudent8, brainFieldStudent9, brainFieldStudent10, brainFieldStudent11 };
 
             //Studends at Queen Land College
 
-            Student queenLandCStudents1 = new Student { FirstName = "Raymond", LastName = "David", Gender = "Male", Location = "Romuola",School= queenLandC,SchoolClass=ss1QL,Subjects=ss1Subject };
-            Student queenLandCStudents2 = new Student { FirstName = "Owen", LastName = "Samuel", Gender = "Male", Location = "Romuokoro", School = queenLandC, SchoolClass = ss1QL, Subjects = ss1Subject };
+            Student queenLandCStudents1 = new Student { FirstName = "Raymond", LastName = "David", Gender = "Male", Location = "Romuola",School= queenLandC,SchoolClass=ss1QL,Subjects= ss1Subject };
+            Student queenLandCStudents2 = new Student { FirstName = "Owen", LastName = "Samuel", Gender = "Male", Location = "Romuokoro", School = queenLandC, SchoolClass = ss1QL, Subjects = ss1Subject};
             Student queenLandCStudents3 = new Student { FirstName = "Lovelina", LastName = "Ken", Gender = "Female", Location = "Romuokoro", School = queenLandC, SchoolClass = ss1QL, Subjects = ss1Subject };
             Student queenLandCStudents4 = new Student { FirstName = "Debbie", LastName = "Manuel", Gender = "Female", Location = "Romuola", School = queenLandC, SchoolClass = ss2QL, Subjects = ss2Subject };
             Student queenLandCStudents5 = new Student { FirstName = "Victor", LastName = "Solomon", Gender = "Male", Location = "Uzuoba", School = queenLandC, SchoolClass = ss2QL, Subjects = ss2Subject };
             Student queenLandCStudents6 = new Student { FirstName = "Great", LastName = "Ina", Gender = "Male", Location = "Romuola", School = queenLandC, SchoolClass = ss2QL, Subjects = ss2Subject };
             Student queenLandCStudents7 = new Student { FirstName = "Grace", LastName = "Rex", Gender = "Female", Location = "Uzuoba", School = queenLandC, SchoolClass = ss2QL, Subjects = ss2Subject };
-            Student queenLandCStudents8 = new Student { FirstName = "Magret", LastName = "Obong", Gender = "Female", Location = "Romuola", School = queenLandC, SchoolClass = ss3QL, Subjects = ss3Subject };
+            Student queenLandCStudents8 = new Student { FirstName = "Magret", LastName = "Obong", Gender = "Female", Location = "Romuola", School = queenLandC, SchoolClass = ss3QL, Subjects = ss3Subject};
             Student queenLandCStudents9 = new Student { FirstName = "Abang", LastName = "Manuel", Gender = "Male", Location = "Romuola", School = queenLandC, SchoolClass = ss3QL, Subjects = ss3Subject };
             Student queenLandCStudents10 = new Student { FirstName = "Debbie", LastName = "Great", Gender = "Female", Location = "Romuola", School = queenLandC, SchoolClass = ss3QL, Subjects = ss3Subject };
             Student queenLandCStudents11 = new Student { FirstName = "Great", LastName = "Obong", Gender = "Male", Location = "Romuola", School = queenLandC, SchoolClass = ss3QL, Subjects = ss3Subject };
@@ -252,11 +277,11 @@ namespace School
             //student brain field
             ss1BrainField.Students = new List<Student> { brainFieldStudent1, brainFieldStudent2, brainFieldStudent3 };
             ss2BrainField.Students = new List<Student> { brainFieldStudent4, brainFieldStudent5, brainFieldStudent6,brainFieldStudent7 };
-            ss1BrainField.Students = new List<Student> { brainFieldStudent8, brainFieldStudent9, brainFieldStudent10,brainFieldStudent11 };
+            ss3BrainField.Students = new List<Student> { brainFieldStudent8, brainFieldStudent9, brainFieldStudent10,brainFieldStudent11 };
             // queen land
             ss1QL.Students = new List<Student> { queenLandCStudents1, queenLandCStudents2, queenLandCStudents3 };
             ss2QL.Students = new List<Student> { queenLandCStudents4, queenLandCStudents5, queenLandCStudents6,queenLandCStudents7 };
-            ss1QL.Students = new List<Student> { queenLandCStudents8, queenLandCStudents9, queenLandCStudents10,queenLandCStudents11 };
+            ss3QL.Students = new List<Student> { queenLandCStudents8, queenLandCStudents9, queenLandCStudents10,queenLandCStudents11 };
 
             //classes
             brainField.Principal = BrainFieldPrincipal;
@@ -273,15 +298,7 @@ namespace School
             repository.CreateModel(queenLandC);
 
 
-            ////..............STUDENTS
-            ////.......................queen land
-            //var ss1StudentsQL = new List<Student> { queenLandCStudents1, queenLandCStudents2, queenLandCStudents3 };
-            //var ss2StudentsQL = new List<Student> { queenLandCStudents4, queenLandCStudents5, queenLandCStudents6 };
-            //var ss3StudentsQL = new List<Student> { queenLandCStudents7, queenLandCStudents8, queenLandCStudents9, queenLandCStudents10, queenLandCStudents11 };
-            ////.......................Brain Field
-            //var ss1StudentsBField = new List<Student> { brainFieldStudent1, brainFieldStudent2, brainFieldStudent3 };
-            //var ss2StudentsBField = new List<Student> { brainFieldStudent4, brainFieldStudent5, brainFieldStudent6 };
-            //var ss3StudentsBField = new List<Student> { brainFieldStudent7, brainFieldStudent8, brainFieldStudent9, brainFieldStudent10, brainFieldStudent11 };
+            
             ////...............load stuent and subject
 
 

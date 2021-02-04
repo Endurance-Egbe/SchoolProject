@@ -20,11 +20,9 @@ namespace ORMs.NHibernateRepository
                  .MsSql2012
                  .ConnectionString
                  (@"Data Source=(localdb)\ProjectsV13;
-                    Initial Catalog=FluentNHibernateSQLServer;
-                    Integrated Security=True;Connect Timeout=30;
-                    Encrypt=False;TrustServerCertificate=False;
-                    ApplicationIntent=ReadWrite;
-                    MultiSubnetFailover=False"))
+                    Initial Catalog=SchoolDBNHibernate;Integrated Security=True;
+                    Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;
+                    ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<SchoolMap>())
                     .ExposeConfiguration(Cfg => new SchemaExport(Cfg)
                     .Create(false, true))
